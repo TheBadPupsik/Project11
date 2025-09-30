@@ -12,8 +12,24 @@ int main()
 	MyString obj2("Hello World");
 	obj2.Print();
 
+	cout << endl;
+
 	cout << "Length = " << obj.MyStrLen() << endl;
 	cout << "Length = " << obj2.MyStrLen() << endl;
+
+	cout << endl;
+
+
+	MyString rez = obj + obj2;
+	rez.Print();
+
+	MyString rez2 = obj + "!!!";
+	rez2.Print();
+
+	MyString rez3 = obj + '?';
+	rez3.Print();
+
+	cout << endl;
 
 	MyString::getCount();
 }

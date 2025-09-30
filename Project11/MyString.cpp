@@ -131,3 +131,39 @@ void MyString::getCount()
 {
     cout << "Static: " << count1 << endl;
 }
+
+
+MyString MyString::operator+(MyString& obj) {
+    int newLength = length + obj.length;
+    MyString rez(newLength + 1);
+    strcpy_s(rez.str, length + 1, str);
+	strcat_s(rez.str, newLength + 1, " ");
+    strcat_s(rez.str, newLength + 1, obj.str);
+    rez.length = strlen(rez.str);
+    return rez;
+}
+
+MyString MyString::operator+(const char* str1){
+int newLength = length + strlen(str1) + 1;
+	MyString rez(newLength + 1);
+	strcpy_s(rez.str, length + 1, str);
+	strcat_s(rez.str, newLength + 1, " ");
+	strcat_s(rez.str, newLength + 1, str1);
+	rez.length = strlen(rez.str);
+	return rez;
+}
+
+MyString MyString::operator+(char c) {
+	int newLength = length + 1;
+	MyString rez(newLength + 1);
+	strcpy_s(rez.str, length + 1, str);
+	strcat_s(rez.str, newLength + 1, " ");
+
+	char temp[2] = { c, '\0' };
+	strcat_s(rez.str, newLength + 1, temp);
+	rez.length = strlen(rez.str);
+	return rez;
+}
+
+
+

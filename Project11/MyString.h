@@ -23,5 +23,11 @@ public:
 
 	static void getCount();// НОВОЕ вывод количества созданных строк
 	static int count1;
+
+	MyString operator+(MyString& obj);
+	MyString operator+(const char* str);
+	MyString operator+(char c);
+
+
 };
 
