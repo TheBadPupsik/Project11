@@ -29,5 +29,11 @@ public:
 	MyString operator+(char c);
 
 
+	bool operator== (MyString& obj2);
+	bool operator> (MyString& obj2);
+	bool operator< (MyString& obj2);
+	bool operator<= (MyString& obj2);
+	bool operator>= (MyString& obj2);
+	bool operator!= (MyString& obj2);
 };
 

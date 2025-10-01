@@ -5,14 +5,16 @@ using namespace std;
 MyString::MyString()
 {
 	length = 80;
-	str = new char[length];
+	str = new char[length + 1];
+	str[0] = '\0';
 	count1++;
 }
 
 MyString::MyString(int size)
 {
 	length = size;
-	str = new char[length];
+	str = new char[length +1];
+	str[0] = '\0';
 	count1++;
 }
 
@@ -46,7 +48,7 @@ void MyString::Print()
 void MyString::Input()
 {
 	cout << "Enter string: ";
-	cin.getline(str, length);
+	cin.getline(str, length + 1);
 }
 
 bool MyString::MyStrStr(const char* s)
@@ -165,5 +167,59 @@ MyString MyString::operator+(char c) {
 	return rez;
 }
 
+bool MyString::operator== (MyString& obj2) {
+	if (strcmp(str, obj2.str) == 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+bool MyString::operator> (MyString& obj2) {
+	if (strcmp(str, obj2.str) > 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+
+}
+
+bool MyString::operator< ( MyString& obj2) {
+	if (strcmp(str, obj2.str) < 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+bool MyString::operator!= (MyString& obj2) {
+	if (strcmp(str, obj2.str)!= 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+bool MyString::operator<= (MyString & obj2) {
+	if (strcmp(str, obj2.str) <= 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+bool MyString::operator>= (MyString& obj2) {
+	if (strcmp(str, obj2.str) >= 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
 

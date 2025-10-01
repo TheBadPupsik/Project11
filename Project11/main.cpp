@@ -31,5 +31,43 @@ int main()
 
 	cout << endl;
 
+	if (obj > obj2)
+	{
+		cout << "First is bigger" << endl;
+	}
+	else
+	{
+		cout << "Second  is bigger" << endl;
+	}
+
+	if (obj == obj2)
+	{
+		cout << "They are both" << endl;
+	}
+
+	if (obj != obj2)
+	{
+		cout << "First != second" << endl;
+	}
+
+	if (obj >= obj2)
+	{
+		cout << "First >= Second" << endl;
+	}
+
+	if (obj < obj2)
+	{
+		cout << "First < second" << endl;
+	}
+
+	if (obj <= obj2)
+	{
+		cout << "First <= second" << endl;
+	}
+
+
+
+	cout << endl;
+
 	MyString::getCount();
 }
