@@ -6,7 +6,6 @@ MyString::MyString()
 {
 	length = 80;
 	str = new char[length + 1];
-	str[0] = '\0';
 	count1++;
 }
 
