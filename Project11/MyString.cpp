@@ -13,7 +13,6 @@ MyString::MyString(int size)
 {
 	length = size;
 	str = new char[length +1];
-	str[0] = '\0';
 	count1++;
 }
 
