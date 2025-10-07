@@ -24,16 +24,23 @@ public:
 	static void getCount();// НОВОЕ вывод количества созданных строк
 	static int count1;
 
-	MyString operator+(MyString& obj);
-	MyString operator+(const char* str);
-	MyString operator+(char c);
+	//MyString operator+(MyString& obj);
+	//MyString operator+(const char* str);
+	//MyString operator+(char c);
 
 
-	bool operator== (MyString& obj2);
-	bool operator> (MyString& obj2);
-	bool operator< (MyString& obj2);
-	bool operator<= (MyString& obj2);
-	bool operator>= (MyString& obj2);
-	bool operator!= (MyString& obj2);
+	//bool operator== (MyString& obj2);
+	//bool operator> (MyString& obj2);
+	//bool operator< (MyString& obj2);
+	//bool operator<= (MyString& obj2);
+	//bool operator>= (MyString& obj2);
+	//bool operator!= (MyString& obj2);
+
+	//MyString& operator++();
+	//MyString& operator++(int);
+	//MyString& operator--();
+	//MyString& operator--(int);
+
+	MyString& operator= (MyString& obj2);
 };
 

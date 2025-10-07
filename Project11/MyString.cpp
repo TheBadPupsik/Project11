@@ -28,7 +28,7 @@ MyString::MyString(const MyString& obj)
 {
 	length = obj.length;
 	str = new char[length + 1];
-	strcpy_s(str, length + 1, obj.str);
+	strcpy_s(str, length + 1, obj.str); 
 	count1++;
 }
 
@@ -133,91 +133,160 @@ void MyString::getCount()
 }
 
 
-MyString MyString::operator+(MyString& obj) {
-    int newLength = length + obj.length;
-    MyString rez(newLength + 1);
-    strcpy_s(rez.str, length + 1, str);
-	strcat_s(rez.str, newLength + 1, " ");
-    strcat_s(rez.str, newLength + 1, obj.str);
-    rez.length = strlen(rez.str);
-    return rez;
+//MyString MyString::operator+(MyString& obj) {
+//    int newLength = length + obj.length;
+//    MyString rez(newLength + 1);
+//    strcpy_s(rez.str, length + 1, str);
+//	strcat_s(rez.str, newLength + 1, " ");
+//    strcat_s(rez.str, newLength + 1, obj.str);
+//    rez.length = strlen(rez.str);
+//    return rez;
+//}
+//
+//MyString MyString::operator+(const char* str1){
+//int newLength = length + strlen(str1) + 1;
+//	MyString rez(newLength + 1);
+//	strcpy_s(rez.str, length + 1, str);
+//	strcat_s(rez.str, newLength + 1, " ");
+//	strcat_s(rez.str, newLength + 1, str1);
+//	rez.length = strlen(rez.str);
+//	return rez;
+//}
+//
+//MyString MyString::operator+(char c) {
+//	int newLength = length + 1;
+//	MyString rez(newLength + 1);
+//	strcpy_s(rez.str, length + 1, str);
+//	strcat_s(rez.str, newLength + 1, " ");
+//
+//	char temp[2] = { c, '\0' };
+//	strcat_s(rez.str, newLength + 1, temp);
+//	rez.length = strlen(rez.str);
+//	return rez;
+//}
+//
+//bool MyString::operator== (MyString& obj2) {
+//	if (strcmp(str, obj2.str) == 0) {
+//		return true;
+//	}
+//	else {
+//		return false;
+//	}
+//}
+//
+//bool MyString::operator> (MyString& obj2) {
+//	if (strcmp(str, obj2.str) > 0) {
+//		return true;
+//	}
+//	else {
+//		return false;
+//	}
+//
+//}
+//
+//bool MyString::operator< ( MyString& obj2) {
+//	if (strcmp(str, obj2.str) < 0) {
+//		return true;
+//	}
+//	else {
+//		return false;
+//	}
+//}
+//
+//bool MyString::operator!= (MyString& obj2) {
+//	if (strcmp(str, obj2.str)!= 0) {
+//		return true;
+//	}
+//	else {
+//		return false;
+//	}
+//}
+//
+//bool MyString::operator<= (MyString & obj2) {
+//	if (strcmp(str, obj2.str) <= 0) {
+//		return true;
+//	}
+//	else {
+//		return false;
+//	}
+//}
+//
+//bool MyString::operator>= (MyString& obj2) {
+//	if (strcmp(str, obj2.str) >= 0) {
+//		return true;
+//	}
+//	else {
+//		return false;
+//	}
+//}
+//
+//MyString& MyString:: operator++() {
+//
+//	int newLength = length + 1;
+//	char* newStr = new char[newLength + 1];
+//	strcpy_s(newStr, newLength + 1, str);
+//	strcat_s(newStr, newLength + 1, " ");
+//	delete[] str;
+//	str = newStr;
+//	length = newLength;
+//
+//	return *this;
+//}
+//
+//MyString& MyString:: operator++(int) {
+//	MyString temp = *this;
+//	int newLength = length + 1;
+//	char* newStr = new char[newLength + 1];
+//	strcpy_s(newStr, newLength + 1, str);
+//	strcat_s(newStr, newLength + 1, " ");
+//
+//	delete[] str;
+//	str = newStr;
+//	length = newLength;
+//
+//	return temp;
+//}
+//
+//MyString& MyString:: operator--() {
+//
+//	int newLength = length - 1;
+//	char* newStr = new char[newLength + 1];
+//
+//	strcpy_s(newStr, newLength + 1, str + 1);
+//
+//	delete[] str;
+//	str = newStr;
+//	length = newLength;
+//
+//	return *this;
+//}
+//MyString& MyString:: operator--(int) {
+//	MyString temp = *this;
+//	int newLength = length - 1;
+//	char* newStr = new char[newLength + 1];
+//
+//	strcpy_s(newStr, newLength + 1, str + 1);
+//
+//	delete[] str;
+//	str = newStr;
+//	length = newLength;
+//
+//	return temp;
+//}
+
+MyString& MyString:: operator= (MyString& obj2){
+	cout << "Operator = \n";
+	if (this == &obj2) {
+		return *this;
+	}
+
+	if (str != nullptr) {
+		delete[] str;
+	}
+
+	str = new char[strlen(obj2.str) + 1];
+	strcpy_s(str, strlen(obj2.str) + 1, obj2.str);
+	length = obj2.length;
+
+	return *this;
 }
-
-MyString MyString::operator+(const char* str1){
-int newLength = length + strlen(str1) + 1;
-	MyString rez(newLength + 1);
-	strcpy_s(rez.str, length + 1, str);
-	strcat_s(rez.str, newLength + 1, " ");
-	strcat_s(rez.str, newLength + 1, str1);
-	rez.length = strlen(rez.str);
-	return rez;
-}
-
-MyString MyString::operator+(char c) {
-	int newLength = length + 1;
-	MyString rez(newLength + 1);
-	strcpy_s(rez.str, length + 1, str);
-	strcat_s(rez.str, newLength + 1, " ");
-
-	char temp[2] = { c, '\0' };
-	strcat_s(rez.str, newLength + 1, temp);
-	rez.length = strlen(rez.str);
-	return rez;
-}
-
-bool MyString::operator== (MyString& obj2) {
-	if (strcmp(str, obj2.str) == 0) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
-bool MyString::operator> (MyString& obj2) {
-	if (strcmp(str, obj2.str) > 0) {
-		return true;
-	}
-	else {
-		return false;
-	}
-
-}
-
-bool MyString::operator< ( MyString& obj2) {
-	if (strcmp(str, obj2.str) < 0) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
-bool MyString::operator!= (MyString& obj2) {
-	if (strcmp(str, obj2.str)!= 0) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
-bool MyString::operator<= (MyString & obj2) {
-	if (strcmp(str, obj2.str) <= 0) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
-bool MyString::operator>= (MyString& obj2) {
-	if (strcmp(str, obj2.str) >= 0) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
-
